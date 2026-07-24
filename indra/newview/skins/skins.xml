@@ -90,6 +90,12 @@
           <key>folder</key>
           <string>ctrlaltstudio</string>
         </map>
+        <map>
+          <key>name</key>
+          <string>Lily Storm</string>
+          <key>folder</key>
+          <string>lily_storm</string>
+        </map>
       </array>
     </map>
 
