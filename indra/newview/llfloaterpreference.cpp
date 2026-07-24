@@ -37,6 +37,7 @@
 
 #include "message.h"
 #include "llfloaterautoreplacesettings.h"
+#include "fsfloaterinventoryautofile.h"
 #include "llagent.h"
 #include "llagentcamera.h"
 #include "llcheckboxctrl.h"
@@ -514,6 +515,7 @@ LLFloaterPreference::LLFloaterPreference(const LLSD& key)
     mCommitCallbackRegistrar.add("Pref.Proxy",                  boost::bind(&LLFloaterPreference::onClickProxySettings, this));
     mCommitCallbackRegistrar.add("Pref.TranslationSettings",    boost::bind(&LLFloaterPreference::onClickTranslationSettings, this));
     mCommitCallbackRegistrar.add("Pref.AutoReplace",            boost::bind(&LLFloaterPreference::onClickAutoReplace, this));
+    mCommitCallbackRegistrar.add("Pref.InventoryAutoFile",      boost::bind(&LLFloaterPreference::onClickInventoryAutoFile, this));
     mCommitCallbackRegistrar.add("Pref.PermsDefault",           boost::bind(&LLFloaterPreference::onClickPermsDefault, this));
     mCommitCallbackRegistrar.add("Pref.RememberedUsernames",    boost::bind(&LLFloaterPreference::onClickRememberedUsernames, this));
     mCommitCallbackRegistrar.add("Pref.SpellChecker",           boost::bind(&LLFloaterPreference::onClickSpellChecker, this));
@@ -1080,6 +1082,9 @@ void LLFloaterPreference::cancel(const std::vector<std::string> settings_to_skip
 
     // hide autoreplace settings floater
     LLFloaterReg::hideInstance("prefs_autoreplace");
+
+    // hide inventory auto-file settings floater
+    LLFloaterReg::hideInstance("prefs_inventory_autofile");
 
     // hide spellchecker settings folder
     LLFloaterReg::hideInstance("prefs_spellchecker");
@@ -3031,6 +3036,11 @@ void LLFloaterPreference::onClickTranslationSettings()
 void LLFloaterPreference::onClickAutoReplace()
 {
     LLFloaterReg::showInstance("prefs_autoreplace");
+}
+
+void LLFloaterPreference::onClickInventoryAutoFile()
+{
+    LLFloaterReg::showInstance("prefs_inventory_autofile");
 }
 
 void LLFloaterPreference::onClickSpellChecker()

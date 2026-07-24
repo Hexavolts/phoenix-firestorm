@@ -117,7 +117,9 @@ set(viewer_SOURCE_FILES
     fsfloateraddtocontactset.cpp
     fsfavoritegroups.cpp
     fsinventorycustomtabs.cpp
+    fsinventoryautofile.cpp
     fsfloaterassetblacklist.cpp
+    fsfloaterinventoryautofile.cpp
     fsfloateravataralign.cpp
     fsfloateravatarrendersettings.cpp
     fsfloaterbigpreview.cpp
@@ -977,7 +979,9 @@ set(viewer_HEADER_FILES
     fsfloateraddtocontactset.h
     fsfavoritegroups.h
     fsinventorycustomtabs.h
+    fsinventoryautofile.h
     fsfloaterassetblacklist.h
+    fsfloaterinventoryautofile.h
     fsfloateravatarrendersettings.h
     fsfloaterbigpreview.h
     fsfloaterblocklist.h

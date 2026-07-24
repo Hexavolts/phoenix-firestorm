@@ -238,6 +238,34 @@
          left="10"
          width="500"
          tool_tip="Causes repeated keybinds (e.g. ctrl+shift+y) to alternate between the requested preset &amp; shared environment"/>
+        <check_box
+          control_name="FSInventoryAutoFileEnabled"
+          height="16"
+          label="Automatically file received items into folders by name"
+          layout="topleft"
+          name="FSInventoryAutoFileEnabled"
+          tool_tip="Files items given by objects/scripts and group notice attachments into a destination folder when their name matches a configured regex pattern."
+          top_pad="3"
+          width="350" />
+        <button
+          top_pad="3"
+          left_delta="10"
+          height="22"
+          width="110"
+          follows="left|top"
+          name="autofile_edit_rules"
+          label="Edit rules..."
+          commit_callback.function="Pref.InventoryAutoFile" />
+        <check_box
+          control_name="FSRedirectTakenObjectsToFolder"
+          height="16"
+          label="Redirect taken objects to a 'Taken Objects' folder"
+          layout="topleft"
+          left="10"
+          name="FSRedirectTakenObjectsToFolder"
+          tool_tip="If enabled, using 'Take / Take Copy' will move objects taken from the world into a 'Taken Objects' folder if an original category cannot be found. This prevents objects from being dumped into the 'Objects' folder where you may have things from other places."
+          top_pad="5"
+          width="350" />
     </panel>
 
 

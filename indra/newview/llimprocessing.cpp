@@ -33,6 +33,7 @@
 #include "llavatarnamecache.h"
 #include "llfirstuse.h"
 #include "llfloaterreg.h"
+#include "fsinventoryautofile.h"
 // <FS:Ansariel> [FS communication UI]
 //#include "llfloaterimnearbychat.h"
 #include "fsfloaternearbychat.h"
@@ -1382,6 +1383,16 @@ void LLIMProcessing::processNewMessage(LLUUID from_id,
                 info->mTransactionID = session_id;
                 info->mType = (LLAssetType::EType) asset_type;
                 info->mFolderID = gInventory.findCategoryUUIDForType(LLFolderType::assetTypeToFolderType(info->mType));
+                // <FS:YourInitials> [Feature] Regex-based inventory auto-filing
+                if (gSavedPerAccountSettings.getBOOL("FSInventoryAutoFileEnabled"))
+                {
+                    LLUUID auto_file_folder;
+                    if (FSInventoryAutoFile::instance().getDestinationFolder(item_name, auto_file_folder))
+                    {
+                        info->mFolderID = auto_file_folder;
+                    }
+                }
+                // </FS>
                 std::string from_name;
 
                 // <FS:Ansariel> FIRE-17714: Make group notice attachment confirmation localizable
@@ -1618,6 +1629,16 @@ void LLIMProcessing::processNewMessage(LLUUID from_id,
             info->mFromName = name;
             info->mDesc = message;
             info->mHost = sender;
+            // <FS:YourInitials> [Feature] Regex-based inventory auto-filing
+            if (info->mFromObject && gSavedPerAccountSettings.getBOOL("FSInventoryAutoFileEnabled"))
+            {
+                LLUUID auto_file_folder;
+                if (FSInventoryAutoFile::instance().getDestinationFolderForDesc(info->mDesc, auto_file_folder))
+                {
+                    info->mFolderID = auto_file_folder;
+                }
+            }
+            // </FS>
             //if (((is_do_not_disturb && !is_owned_by_me) || is_muted))
             if (is_muted)
             {

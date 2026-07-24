@@ -196,6 +196,7 @@
 #include "fsareasearch.h"
 #include "fsfloateraddtocontactset.h"
 #include "fsfloaterassetblacklist.h"
+#include "fsfloaterinventoryautofile.h"
 #include "fsfloateravatarrendersettings.h"
 #include "fsfloaterbigpreview.h"
 #include "fsfloatercontacts.h"
@@ -548,6 +549,7 @@ void LLViewerFloaterReg::registerFloaters()
     LLFloaterReg::add("prefs_translation", "floater_translation_settings.xml", (LLFloaterBuildFunc)&LLFloaterReg::build<LLFloaterTranslationSettings>);
     LLFloaterReg::add("prefs_spellchecker", "floater_spellcheck.xml", (LLFloaterBuildFunc)&LLFloaterReg::build<LLFloaterSpellCheckerSettings>);
     LLFloaterReg::add("prefs_autoreplace", "floater_autoreplace.xml", (LLFloaterBuildFunc)&LLFloaterReg::build<LLFloaterAutoReplaceSettings>);
+    LLFloaterReg::add("prefs_inventory_autofile", "floater_fs_inventory_autofile.xml", (LLFloaterBuildFunc)&LLFloaterReg::build<FSFloaterInventoryAutoFile>);
     LLFloaterReg::add("pref_joystick", "floater_joystick.xml", (LLFloaterBuildFunc)&LLFloaterReg::build<LLFloaterJoystick>);
     LLFloaterReg::add("preview_anim", "floater_preview_animation.xml", (LLFloaterBuildFunc)&LLFloaterReg::build<LLPreviewAnim>/*, "preview"*/);
     LLFloaterReg::add("preview_conversation", "floater_conversation_preview.xml", (LLFloaterBuildFunc)&LLFloaterReg::build<LLFloaterConversationPreview>);

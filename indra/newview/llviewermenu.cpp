@@ -6401,6 +6401,24 @@ static void derez_objects_separate(EDeRezDestination dest, const LLUUID &dest_id
     }
 }
 
+LLUUID apply_taken_objects_folder_override(const LLUUID& default_folder_id)
+{
+    if (!gSavedPerAccountSettings.getBOOL("FSRedirectTakenObjectsToFolder"))
+    {
+        return default_folder_id;
+    }
+
+    static const std::string TAKEN_OBJECTS_FOLDER_NAME = "Taken Objects";
+    LLUUID folder_id = gInventory.findCategoryByName(TAKEN_OBJECTS_FOLDER_NAME);
+    if (folder_id.isNull())
+    {
+        gInventory.createNewCategory(gInventory.getRootFolderID(), LLFolderType::FT_NONE, TAKEN_OBJECTS_FOLDER_NAME);
+        return default_folder_id;
+    }
+
+    return folder_id;
+}
+
 void handle_take_copy()
 {
     if (LLSelectMgr::getInstance()->getSelection()->isEmpty()) return;
@@ -6416,7 +6434,8 @@ void handle_take_copy()
     }
 // [/RLVa:KB]
 
-    const LLUUID category_id = gInventory.findCategoryUUIDForType(LLFolderType::FT_OBJECT);
+    LLUUID category_id = gInventory.findCategoryUUIDForType(LLFolderType::FT_OBJECT);
+    category_id = apply_taken_objects_folder_override(category_id);
     derez_objects(DRD_ACQUIRE_TO_AGENT_INVENTORY, category_id);
 }
 
@@ -6425,7 +6444,8 @@ void handle_take_separate_copy()
     if (LLSelectMgr::getInstance()->getSelection()->isEmpty())
         return;
 
-    const LLUUID category_id = gInventory.findCategoryUUIDForType(LLFolderType::FT_OBJECT);
+    LLUUID category_id = gInventory.findCategoryUUIDForType(LLFolderType::FT_OBJECT);
+    category_id = apply_taken_objects_folder_override(category_id);
     derez_objects_separate(DRD_ACQUIRE_TO_AGENT_INVENTORY, category_id);
 }
 
@@ -6625,6 +6645,7 @@ void handle_take(bool take_separate)
     if(category_id.isNull())
     {
         category_id = gInventory.findCategoryUUIDForType(LLFolderType::FT_OBJECT);
+        category_id = apply_taken_objects_folder_override(category_id);
         LL_DEBUGS("HandleTake") << "Destination folder = null UUID - determined default category: " << category_id.asString() << LL_ENDL;
     }
     LLSD payload;

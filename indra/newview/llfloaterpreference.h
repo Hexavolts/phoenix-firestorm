@@ -271,6 +271,7 @@ public:
     void onClickPermsDefault();
     void onClickRememberedUsernames();
     void onClickAutoReplace();
+    void onClickInventoryAutoFile();
     void onClickSpellChecker();
     void onClickRenderExceptions();
     void onClickAutoAdjustments();

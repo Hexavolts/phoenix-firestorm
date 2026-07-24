@@ -867,6 +867,28 @@
 		<key>Value</key>
 			<integer>0</integer>
 	</map>
+	<key>FSInventoryAutoFileEnabled</key>
+	<map>
+		<key>Comment</key>
+			<string>If enabled, items given by objects/scripts and group notice attachments whose name matches a configured regex pattern will be automatically filed into the matching destination folder instead of the default folder</string>
+		<key>Persist</key>
+			<integer>1</integer>
+		<key>Type</key>
+			<string>Boolean</string>
+		<key>Value</key>
+			<integer>0</integer>
+	</map>
+    <key>FSRedirectTakenObjectsToFolder</key>
+    <map>
+        <key>Comment</key>
+            <string>If enabled, using 'Take / Take Copy' will move objects taken from the world into a 'Taken Objects' folder if an original category cannot be found. This prevents objects from being dumped into the 'Objects' folder where you may have things from other places.</string>
+        <key>Persist</key>
+            <integer>1</integer>
+        <key>Type</key>
+            <string>Boolean</string>
+        <key>Value</key>
+            <integer>0</integer>
+    </map>
 	<key>FSKeywordInChat</key>
 	<map>
 		<key>Comment</key>
