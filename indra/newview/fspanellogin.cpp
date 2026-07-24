@@ -430,6 +430,34 @@ void FSPanelLogin::setFocus(bool b)
     }
 }
 
+// <FS:YourInitials> [Feature] Log In button label color hover effect
+// LLButton's built-in image_hover_unselected swap is driven by handleHover()/mNeedsHighlight,
+// which has no public getter, and its onMouseEnter/onMouseLeave signal-based callbacks don't
+// fire reliably here. Polling the mouse position directly every frame is a small, self-contained
+// way to get the same effect for the label color without needing to subclass LLButton.
+void FSPanelLogin::draw()
+{
+    LLButton* connect_btn = findChild<LLButton>("connect_btn");
+    if (connect_btn)
+    {
+        S32 mouse_x = 0;
+        S32 mouse_y = 0;
+        LLUI::getInstance()->getMousePositionLocal(connect_btn, &mouse_x, &mouse_y);
+        bool hovering = (mouse_x >= 0 && mouse_x <= connect_btn->getRect().getWidth()
+                          && mouse_y >= 0 && mouse_y <= connect_btn->getRect().getHeight());
+
+        static bool was_hovering = false;
+        if (hovering != was_hovering)
+        {
+            connect_btn->setUnselectedLabelColor(hovering ? LLColor4(0.45f, 0.38f, 0.65f, 1.f) : LLColor4(1.f, 1.f, 1.f, 1.f));
+            was_hovering = hovering;
+        }
+    }
+
+    LLPanel::draw();
+}
+// </FS>
+
 // static
 void FSPanelLogin::giveFocus()
 {

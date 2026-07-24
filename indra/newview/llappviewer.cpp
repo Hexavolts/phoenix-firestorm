@@ -3554,7 +3554,10 @@ bool LLAppViewer::initConfiguration()
     //
     // Set the name of the window
     //
-    gWindowTitle = LLVersionInfo::getInstance()->getChannelAndVersion();    // <FS:CR>
+    // <FS:YourInitials> [Feature] Custom window title instead of channel/version
+    //gWindowTitle = LLVersionInfo::getInstance()->getChannelAndVersion();    // <FS:CR>
+    gWindowTitle = "Lily Storm";
+    // </FS>
 #if LL_DEBUG
     gWindowTitle += std::string(" [DEBUG]");
 #endif

@@ -711,6 +711,8 @@ with the same filename but different name
   <texture name="Rounded_Rect_Left"	file_name="Rounded_Rect.png" preload="true" scale.left="6" scale.top="26" scale.right="32" scale.bottom="6" clip.left="0" clip.right="32" clip.bottom="0" clip.top="32" />
   <texture name="Rounded_Rect_Right"	file_name="Rounded_Rect.png" preload="true" scale.left="0" scale.top="26" scale.right="26" scale.bottom="6" clip.left="32" clip.right="64" clip.bottom="0" clip.top="32" />
   <texture name="Rounded_Square"	file_name="rounded_square.j2c" preload="true" scale.left="16" scale.top="16" scale.right="112" scale.bottom="16" />
+  <texture name="login_btn_normal"	file_name="login_btn_normal.png" preload="true" scale.left="6" scale.top="26" scale.right="58" scale.bottom="6" />
+  <texture name="login_btn_hover"	file_name="login_btn_hover.png" preload="true" scale.left="6" scale.top="26" scale.right="58" scale.bottom="6" />
   <texture name="Row_Selection" file_name="navbar/Row_Selection.png" preload="false" />
 
   <texture name="ScrollArrow_Down" file_name="widgets/ScrollArrow_Down.png"	preload="true" scale.left="2" scale.top="13" scale.right="13" scale.bottom="2" />
@@ -782,6 +784,7 @@ with the same filename but different name
   <texture name="startup_logo"  file_name="windows/startup_logo.png" preload="true" />
 
   <texture name="login_fs_logo"  file_name="windows/login_fs_logo.png" preload="true" />
+  <texture name="login_lilystorm_bg"  file_name="windows/login_lilystorm_bg.png" preload="true" />
   <texture name="login_sl_logo"  file_name="windows/login_sl_logo.png" preload="true" />
   <texture name="login_sl_logo_horizontal"  file_name="windows/login_sl_logo_horizontal.png" preload="true" />
   <texture name="login_sl_logo_small"  file_name="windows/login_sl_logo_small.png" preload="true" />
